@@ -1,0 +1,136 @@
+/* General Reset & Page Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #aaaaaa;
+    font-size: 1rem;
+}
+
+/* Gallery Grid Layout */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-card h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: #4da3ff;
+    text-align: center;
+}
+
+/* Image Wrappers */
+.image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    position: relative;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* --- Project Specific CSS3 Filter & Shadow Rules --- */
+
+/* 1. Penguins: High contrast and slight cool tint */
+.penguin-effect img {
+    filter: contrast(115%) brightness(105%) saturate(85%);
+}
+
+/* 2. Butterfly: Warm Sepia Tone */
+.butterfly-effect img {
+    filter: sepia(60%) contrast(110%) saturate(120%);
+}
+
+/* 3. Seagull: Drop shadow highlight against dark backing */
+.seagull-effect {
+    background: radial-gradient(circle, #333 0%, #111 100%);
+}
+.seagull-effect img {
+    object-fit: contain;
+    filter: drop-shadow(0px 10px 15px rgba(255, 255, 255, 0.25));
+}
+
+/* 4. Dinosaur: Hue Rotation shift */
+.dinosaur-effect img {
+    object-fit: contain;
+    filter: hue-rotate(15deg) saturate(130%) brightness(105%);
+}
+
+/* 5. Theater Stage: Gradient Overlay / Lighting adjustment */
+.stage-effect img {
+    filter: brightness(90%) contrast(120%);
+}
+.stage-effect::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+}
+
+/* 6. Football Field + Tic-Tac-Toe Composite */
+.football-composite {
+    position: relative;
+}
+.football-composite .bg-field {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(90%) brightness(95%);
+}
+.football-composite .overlay-ttt {
+    position: absolute;
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.7));
+    opacity: 0.95;
+}
